@@ -21,7 +21,7 @@ export default function Navbar() {
           width={32}
           height={32}
         />
-        <h4 className="hidden md:block md:font-bold md:font-archivo md:text-md">
+        <h4 className="hidden md:block md:font-bold md:font-archivo md:text-lg">
           VX SOFTWARE SOLUTIONS
         </h4>
       </div>
