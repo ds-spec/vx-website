@@ -1,20 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const navItems = [
-    "Home",
-    "Services",
-    "Industries",
-    "Products",
-    "Portfolio",
-    "about us",
-    "blog",
-    "contact us",
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/#services" },
+    { label: "Industries", href: "/#industries" },
+    { label: "Products", href: "/products" }, // 👈 This goes to products page
+    { label: "Portfolio", href: "/#portfolio" },
+    { label: "About Us", href: "/#about" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact Us", href: "/#contact" },
   ];
 
   return (
     <div className="flex items-center justify-between w-full bg-[#1E1E1E] border-b-[1px] border-[#313131] px-6 py-5">
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2">a
         <Image
           src="/images/logo.png"
           alt="vx software solutions"
@@ -33,13 +34,12 @@ export default function Navbar() {
         height={32}
       />
       <div className="hidden md:flex items-center gap-3">
-        {navItems?.map((item, index) => (
-          <h4
-            key={index}
-            className="font-figtree uppercase cursor-pointer text-lg hover:text-[#A0DD34] nav-hover-btn font-semibold"
-          >
-            {item}
-          </h4>
+        {navItems.map((item, index) => (
+          <Link key={index} href={item.href}>
+            <h4 className="font-figtree uppercase cursor-pointer text-lg hover:text-[#A0DD34] nav-hover-btn font-semibold">
+              {item.label}
+            </h4>
+          </Link>
         ))}
       </div>
     </div>
