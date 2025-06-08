@@ -1,6 +1,8 @@
 import AnimatedText from "@/components/AnimatedText";
 import Navbar from "@/components/Navbar";
-import Wrapper from "@/components/Wrapper";
+import Services from "@/components/Services";
+import WorkflowSection from "@/components/WorkflowSection";
+import Wrapper from "@/components/Wrapper/Wrapper";
 
 export default function Home() {
   return (
@@ -8,6 +10,8 @@ export default function Home() {
       <Navbar />
       <Wrapper />
       <AnimatedText />
+      <WorkflowSection />
+      <Services />
     </div>
   );
 }
