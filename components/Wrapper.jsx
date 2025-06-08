@@ -39,12 +39,11 @@ export default function Wrapper() {
   };
 
   return (
-    <div className="flex items-center w-full h-[120vh] overflow-hidden">
-      <div className="w-full h-full px-9 py-4">
+    <div className="flex flex-col md:flex-row items-center w-full h-[120vh] overflow-hidden">
+      <div className="w-full h-full px-4 py-4">
         <WrapperCard />
       </div>
       <div className="relative w-full h-full">
-        {/* <div className="absolute w-full h-full z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform origin-center"> */}
         <Image
           className="absolute z-[5] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform origin-center"
           ref={frameRef}
@@ -55,7 +54,6 @@ export default function Wrapper() {
           width={646}
           height={646}
         />
-        {/* </div> */}
         <Image
           className="object-cover"
           src="/images/bannerimg.jpg"

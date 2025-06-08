@@ -1,0 +1,7 @@
+.words2,
+.words4,
+.words9,
+.words24 {
+  border: 2px dotted rgb(229, 229, 239);
+  border-radius: 10%;
+}
