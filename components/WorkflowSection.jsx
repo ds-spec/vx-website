@@ -57,7 +57,7 @@ export default function WorkflowSection() {
         />
         <div className="flex items-center w-full gap-5">
           {processSteps?.map((step, index) => (
-            <div className="relative flex">
+            <div key={index} className="relative flex">
               {/* <Image
                 className="rounded-l-xl"
                 width={270}

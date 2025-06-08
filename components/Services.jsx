@@ -1,19 +1,28 @@
 "use client";
 
 import Image from "next/image";
+import { useRef, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { MdSettingsSuggest } from "react-icons/md";
 import RoundedTag from "./RoundedTag";
-import { useEffect, useRef, useState } from "react";
 
 export default function Services() {
-  const [isServiceActive, setServiceActive] = useState(false);
+  const [activeIndex, setActiveIndex] = useState();
   const cardRef = useRef(null);
 
-  const handleClick = () => {
-    if (cardRef.current) {
-      setServiceActive(!isServiceActive);
-    }
+  // const handleClick = (index, event) => {
+  //   event.stopPropagation();
+  //   setActiveIndex(activeIndex === index ? null : index);
+  //   console.log(
+  //     `Clicked card index: ${index}, activeIndex will be: ${
+  //       activeIndex === index ? null : index
+  //     }`
+  //   );
+  // };
+
+  const handleClick = (index, event) => {
+    event.stopPropagation();
+    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
   const services = [
@@ -77,13 +86,13 @@ export default function Services() {
           color={"white"}
           icon={<MdSettingsSuggest color="#ffa000" />}
         />
-        <div className="flex justify-between flex-wrap">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {services?.map((service, index) => (
             <div
-              ref={cardRef}
-              onClick={handleClick}
+              // ref={cardRef}
               key={index}
-              className="flex flex-col gap-2 items-center bg-[#121015] w-[49.5%] px-3 py-4 rounded-xl mb-4 cursor-pointer border border-transparent hover:border-2 hover:border-[#1423C9] transition-colors"
+              onClick={(e) => handleClick(index, e)}
+              className="flex flex-col gap-2 items-center bg-[#121015] w-full px-3 py-4 rounded-xl mb-4 cursor-pointer border border-transparent hover:border-2 hover:border-[#1423C9] transition-colors"
             >
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-2">
@@ -99,7 +108,7 @@ export default function Services() {
                 </div>
                 <FaPlus color="white" />
               </div>
-              {isServiceActive && (
+              {activeIndex == index && (
                 <p className="font-figtree font-bold text-lg">
                   {service.description}
                 </p>
