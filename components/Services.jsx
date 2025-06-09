@@ -9,6 +9,7 @@ import Industry from "./Industry";
 import RoundedTag from "./RoundedTag";
 import Technologies from "./Technologies";
 import Portfolio from "./Portfolio";
+import Testimonials from "./Testimonials";
 
 export default function Services() {
   const [activeIndex, setActiveIndex] = useState();
@@ -121,6 +122,7 @@ export default function Services() {
           <Industry />
           <Technologies />
           <Portfolio />
+          <Testimonials />
         </div>
       </div>
     </div>

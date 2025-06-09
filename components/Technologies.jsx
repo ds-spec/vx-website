@@ -57,8 +57,6 @@ const Technologies = () => {
       <div className="relative w-full min-h-[90vh] bg-[#121015] rounded-xl px-3 py-4 overflow-hidden">
         <Image
           src="/images/technologies.png"
-          // width={1200}
-          // height={1200}
           fill
           objectFit="cover"
           alt="technologies"

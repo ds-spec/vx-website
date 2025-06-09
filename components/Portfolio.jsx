@@ -56,41 +56,43 @@ export default function Portfolio() {
       <div className="flex flex-col gap-4 w-full bg-[#121015] rounded-xl px-3 py-4 overflow-hidden">
         <div className="flex flex-col gap-5 px-4 py-2">
           {data?.map((product, _) => (
-            <>
-              <h4 className="text-2xl font-figtree font-semibold">
+            <div key={product.section}>
+              <h4 className="text-2xl font-figtree font-semibold mb-2">
                 {product.section}
               </h4>
-              {product.items?.map((item, index) => (
-                <Link
-                  key={`${item.title}-${index}`}
-                  href={item.link}
-                  style={{ backgroundColor: item.bgColor }}
-                  className="flex flex-col gap-1  w-full rounded-xl px-5 py-4 hover:shadow-2xl hover:shadow-purple-500/15"
-                >
-                  <div className="flex items-center justify-between group cursor-pointer">
-                    <div className="flex flex-col">
-                      <p
-                        style={{ color: item.textColor }}
-                        className="font-figtree text-lg"
-                      >
-                        {item.title}
-                      </p>
-                      {item.subtitle && (
+              <div className="flex flex-col gap-5">
+                {product.items?.map((item, index) => (
+                  <Link
+                    key={`${item.title}-${index}`}
+                    href={item.link}
+                    style={{ backgroundColor: item.bgColor }}
+                    className="w-full rounded-xl px-5 py-4 hover:shadow-2xl hover:shadow-purple-500/15"
+                  >
+                    <div className="flex items-center justify-between group cursor-pointer">
+                      <div className="flex flex-col">
                         <p
                           style={{ color: item.textColor }}
                           className="font-figtree text-lg"
                         >
-                          {item.subtitle}
+                          {item.title}
                         </p>
-                      )}
+                        {item.subtitle && (
+                          <p
+                            style={{ color: item.textColor }}
+                            className="font-figtree text-lg"
+                          >
+                            {item.subtitle}
+                          </p>
+                        )}
+                      </div>
+                      <div className="bg-white rounded-full p-2 transform transition-all duration-300 group-hover:translate-x-2">
+                        <ArrowRight color="black" size={"1.9em"} />
+                      </div>
                     </div>
-                    <div className="bg-white rounded-full p-2 transform transition-all duration-300 group-hover:translate-x-2">
-                      <ArrowRight color="black" size={"1.9em"} />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </>
+                  </Link>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
