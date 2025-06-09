@@ -58,12 +58,6 @@ export default function WorkflowSection() {
         <div className="flex items-center w-full gap-5">
           {processSteps?.map((step, index) => (
             <div key={index} className="relative flex">
-              {/* <Image
-                className="rounded-l-xl"
-                width={270}
-                height={100}
-                src={`/images/${step.src}.jpg`}
-              /> */}
               <div
                 style={{ backgroundColor: step.bgColor, color: step.textColor }}
                 key={index}
