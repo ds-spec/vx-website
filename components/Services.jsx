@@ -190,26 +190,35 @@ export default function Services() {
               {industries?.map((industry, index) => (
                 <div
                   key={index}
+                  onMouseOver={() => setActiveIndustryIndex(index)}
+                  onMouseLeave={() => setActiveIndustryIndex(null)}
                   style={{ backgroundColor: industry.bgColor }}
                   className={`relative flex flex-col gap-4 cursor-pointer col-span-1 ${getColSpanClass(
                     industry.span
-                  )} min-h-52 justify-center items-center rounded-xl hover:bg-gradient-to-t hover:from-[#2E8B95] hover:via-[#121015] hover:to-[#121015] hover:transition-colors`}
+                  )} min-h-52 justify-center items-center rounded-xl hover:bg-gradient-to-b hover:from-[${
+                    industry.bgColor
+                  }] hover:via-[#121015] hover:to-[#1f1e1e] hover:transition-colors`}
                 >
-                  <div className="absolute text-center text-lg leading-6 font-figtree font-semibold">
-                    {industry.description}
-                  </div>
-                  <Image
-                    width={58}
-                    height={58}
-                    alt="expertise-icons"
-                    src={`/images/icons/${industry.icon}.png`}
-                  />
-                  <p
-                    style={{ color: industry.textColor }}
-                    className="font-figtree text-xl font-semibold"
-                  >
-                    {industry.title}
-                  </p>
+                  {activeIndustryIndex == index ? (
+                    <div className="absolute text-center text-md leading-6 font-figtree font-bold px-2">
+                      {industry.description}
+                    </div>
+                  ) : (
+                    <>
+                      <Image
+                        width={58}
+                        height={58}
+                        alt="expertise-icons"
+                        src={`/images/icons/${industry.icon}.png`}
+                      />
+                      <p
+                        style={{ color: industry.textColor }}
+                        className="font-figtree text-xl font-semibold"
+                      >
+                        {industry.title}
+                      </p>
+                    </>
+                  )}
                 </div>
               ))}
             </div>

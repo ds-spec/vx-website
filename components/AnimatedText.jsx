@@ -6,7 +6,6 @@ import { useEffect } from "react";
 import { FaStar } from "react-icons/fa6";
 import Button from "./Button";
 import RoundedTag from "./RoundedTag";
-import "./style.css";
 
 gsap.registerPlugin(SplitText);
 gsap.registerPlugin(ScrollTrigger);
@@ -27,7 +26,6 @@ export default function AnimatedText() {
         trigger: ".text",
         start: "top center",
         end: "-=200",
-        // markers: true,
         scrub: 1,
       },
     });
