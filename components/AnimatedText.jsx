@@ -19,13 +19,13 @@ export default function AnimatedText() {
 
     gsap.from(split.words, {
       opacity: 0,
-      y: 30,
+      y: 80,
       stagger: 0.05,
       autoAlpha: 0,
       scrollTrigger: {
         trigger: ".text",
         start: "top center",
-        end: "-=200",
+        end: "bottom 20%",
         scrub: 1,
       },
     });
