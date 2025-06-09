@@ -7,6 +7,10 @@ import PlatformFeaturesPage from "./PlatformFeaturesPage";
 import StarSection from "./StarSection";
 import EducationalPlatform from "./EducationalPlatform";
 import TestimonialsSection from "./TestimonialsSection";
+import FAQComponent from "./FAQCoomponent";
+import PricingPage from "./PricingPage";
+import Gradsection from "./Gradsection";
+import VXSoftwareFooter from "./VXSoftwareFooter";
 
 export default function Products() {
   return (
@@ -20,6 +24,10 @@ export default function Products() {
       <StarSection/>
       <EducationalPlatform/>
       <TestimonialsSection/>
+      <FAQComponent/>
+      <PricingPage/>
+      <Gradsection/>
+      <VXSoftwareFooter/>
     </div>
   );
 }
