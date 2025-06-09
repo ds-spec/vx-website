@@ -34,6 +34,14 @@ const Technologies = () => {
       .to(".expanding-circle", {
         scale: 6.6,
         borderColor: "#D8FF29",
+      })
+      .to(".expanding-circle", {
+        scale: 7.6,
+        borderColor: "#D8FF29",
+      })
+      .to(".expanding-circle", {
+        scale: 8.6,
+        borderColor: "#D8FF29",
       });
   }, []);
 

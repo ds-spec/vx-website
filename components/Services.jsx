@@ -8,6 +8,7 @@ import { RiApps2AiFill } from "react-icons/ri";
 import Industry from "./Industry";
 import RoundedTag from "./RoundedTag";
 import Technologies from "./Technologies";
+import Portfolio from "./Portfolio";
 
 export default function Services() {
   const [activeIndex, setActiveIndex] = useState();
@@ -119,6 +120,7 @@ export default function Services() {
           />
           <Industry />
           <Technologies />
+          <Portfolio />
         </div>
       </div>
     </div>
