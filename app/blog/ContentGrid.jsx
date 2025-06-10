@@ -1,10 +1,17 @@
 "use client"
 
 import React, { useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
+import { Figtree } from "next/font/google";
+const figtree = Figtree({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"], // Customize as needed
+});
 
 const ContentGrid = () => {
   const gridRef = useRef(null);
   const cardsRef = useRef([]);
+  const router = useRouter();
 
   useEffect(() => {
     // Simple GSAP-like animations using CSS transitions and JavaScript
@@ -44,8 +51,23 @@ const ContentGrid = () => {
     });
   }, []);
 
+  // Function to generate slug from title
+  const generateSlug = (title) => {
+    return title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/(^-|-$)/g, '');
+  };
+
+  // Function to handle card click
+  const handleCardClick = (item, index) => {
+    // Navigate to blogone page with item data as query params
+    router.push(`/blogone?id=${item.id}&title=${encodeURIComponent(item.title)}`);
+  };
+
   const contentItems = [
     {
+      id: 1,
       title: "AI, Business Agility, and the Future of Work: Insights from Di...",
       date: "12/03/2025 03:10 PM",
       description: "We're excited to announce our partnership with Optimizely, the top CMS platform fo...",
@@ -53,6 +75,7 @@ const ContentGrid = () => {
       category: "Technology"
     },
     {
+      id: 2,
       title: "Why Hire LATAM Developers for Your Next Project",
       date: "12/03/2025 03:10 PM", 
       description: "We're excited to announce our partnership with Optimizely, the top CMS platform fo...",
@@ -60,6 +83,7 @@ const ContentGrid = () => {
       category: "Development"
     },
     {
+      id: 3,
       title: "Vadim Peskov Podcast Interview with MatriQpoint",
       date: "12/03/2025 03:10 PM",
       description: "We're excited to announce our partnership with Optimizely, the top CMS platform fo...",
@@ -67,6 +91,7 @@ const ContentGrid = () => {
       category: "Podcast"
     },
     {
+      id: 4,
       title: "Outsource Python Development: 3 Steps to Success",
       date: "12/03/2025 03:10 PM",
       description: "We're excited to announce our partnership with Optimizely, the top CMS platform fo...",
@@ -74,6 +99,7 @@ const ContentGrid = () => {
       category: "Programming"
     },
     {
+      id: 5,
       title: "AI, Business Agility, and the Future of Work: Insights from Di...",
       date: "12/03/2025 03:10 PM",
       description: "We're excited to announce our partnership with Optimizely, the top CMS platform fo...",
@@ -92,13 +118,16 @@ const ContentGrid = () => {
         >
           {contentItems.slice(0, 4).map((item, index) => (
             <div
-              key={index}
+              key={item.id}
               ref={el => cardsRef.current[index] = el}
-              className="relative rounded-lg overflow-hidden cursor-pointer  bg-[#121015] border border-[#232323] flex flex-col "
+              onClick={() => handleCardClick(item, index)}
+              className="relative rounded-lg overflow-hidden cursor-pointer bg-[#121015] border border-[#232323] flex flex-col hover:border-gray-500 transition-all duration-300"
             >
               {/* Content at the top */}
               <div className="p-6 flex-1">
-              
+                <span className="text-xs font-medium text-gray-400 mb-2 block">
+                  {item.category}
+                </span>
                 <h3 className="font-semibold text-[20px] mb-2 leading-tight text-white">
                   {item.title}
                 </h3>
@@ -115,12 +144,12 @@ const ContentGrid = () => {
                 <img 
                   src={item.image} 
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
 
               {/* Hover effect */}
-              <div className="absolute inset-0 border-2 border-transparent  transition-all duration-300 pointer-events-none"></div>
+              <div className="absolute inset-0 border-2 border-transparent transition-all duration-300 pointer-events-none"></div>
             </div>
           ))}
         </div>
@@ -129,7 +158,8 @@ const ContentGrid = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
           <div
             ref={el => cardsRef.current[4] = el}
-            className="relative rounded-lg overflow-hidden cursor-pointer bg-[#121015] border border-[#232323] flex flex-col"
+            onClick={() => handleCardClick(contentItems[4], 4)}
+            className="relative rounded-lg overflow-hidden cursor-pointer bg-[#121015] border border-[#232323] flex flex-col hover:border-gray-500 transition-all duration-300"
           >
             {/* Content at the top */}
             <div className="p-6 flex-1">
@@ -152,12 +182,12 @@ const ContentGrid = () => {
               <img 
                 src={contentItems[4].image} 
                 alt={contentItems[4].title}
-                className="w-full h-full object-cover transition-transform duration-500"
+                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
               />
             </div>
 
             {/* Hover effect */}
-            <div className="absolute inset-0 border-2 border-transparent group-hover:border-gray-500 transition-all duration-300 pointer-events-none"></div>
+            <div className="absolute inset-0 border-2 border-transparent transition-all duration-300 pointer-events-none"></div>
           </div>
         </div>
       </div>
