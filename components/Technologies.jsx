@@ -1,10 +1,13 @@
 "use client";
 
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
 import { useEffect } from "react";
 import { TbCpu } from "react-icons/tb";
 import RoundedTag from "./RoundedTag";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Technologies = () => {
   const tl = gsap.timeline({
@@ -43,6 +46,9 @@ const Technologies = () => {
         scale: 8.6,
         borderColor: "#D8FF29",
       });
+    return () => {
+      tl.kill();
+    };
   }, []);
 
   return (

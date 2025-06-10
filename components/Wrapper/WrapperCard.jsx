@@ -4,7 +4,7 @@ import RoundedTag from "../RoundedTag";
 
 export default function WrapperCard() {
   return (
-    <div className="flex flex-col gap-2 justify-center w-full h-full bg-[#121015] px-7 py-4 rounded-3xl">
+    <div className="flex flex-col gap-2 justify-center w-full min-h-full bg-[#121015] px-7 py-4 rounded-3xl">
       <RoundedTag
         title={"Best Software Development Company"}
         icon={<HiSparkles color="#fdd835" />}

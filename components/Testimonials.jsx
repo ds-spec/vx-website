@@ -1,10 +1,14 @@
+"use client";
+
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
 import { FiMessageCircle } from "react-icons/fi";
 import RoundedTag from "./RoundedTag";
 
 export default function Testimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0);
   const testimonials = [
     {
       quote:
@@ -53,6 +57,18 @@ export default function Testimonials() {
     },
   ];
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
+  };
+
+  const translateX = currentIndex * -40;
+
   return (
     <>
       <RoundedTag
@@ -63,9 +79,13 @@ export default function Testimonials() {
         color={"white"}
       />
       <div className="flex flex-col items-center gap-12 relative w-full bg-[#121015] rounded-xl px-3 py-4 overflow-hidden">
-        <div className="flex items-center gap-12">
+        <div
+          className="flex items-center w-full gap-12 transition-transform duration-400 ease-in-out"
+          style={{ transform: `translateX(${translateX}%)` }}
+        >
           {testimonials?.map((testimonial, index) => (
             <div
+              key={index}
               style={{ backgroundColor: testimonial.bgColor }}
               className="flex flex-col flex-shrink-0 gap-7 w-4xl rounded-4xl px-5 py-4"
             >
@@ -100,10 +120,16 @@ export default function Testimonials() {
           ))}
         </div>
         <div className="flex items-center gap-5 self-end">
-          <div className="bg-white cursor-pointer rounded-full p-2 transform transition-all">
+          <div
+            onClick={prevSlide}
+            className="bg-white cursor-pointer rounded-full p-2 transform transition-all"
+          >
             <ArrowLeft color="black" size={"1.9em"} />
           </div>
-          <div className="bg-white cursor-pointer rounded-full p-2 transform transition-all">
+          <div
+            onClick={nextSlide}
+            className="bg-white cursor-pointer rounded-full p-2 transform transition-all"
+          >
             <ArrowRight color="black" size={"1.9em"} />
           </div>
         </div>
