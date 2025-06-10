@@ -14,7 +14,7 @@ export default function HeroSection() {
           <p className="text-lg md:text-xl lg:text-4xl text-white/95 mb-10 font-light">
             Let's take the first step together.
           </p>
-          <button className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-medium pl-6 pr-2 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl group text-base">
+          {/* <button className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white font-medium pl-6 pr-2 py-3 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl group text-base">
             <span>Know More</span>
             <div className="w-10 h-10 rounded-full  flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
           <svg width="42" height="42" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@ export default function HeroSection() {
 </svg>
 
             </div>
-          </button>
+          </button> */}
         </div>
         
         {/* Subtle background pattern */}
