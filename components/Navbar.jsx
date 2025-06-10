@@ -5,10 +5,10 @@ export default function Navbar() {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/#services" },
-    { label: "Industries", href: "/#industries" },
+    { label: "Industries", href: "/industries" },
     { label: "Products", href: "/products" }, // 👈 This goes to products page
-    { label: "Portfolio", href: "/#portfolio" },
-    { label: "About Us", href: "/#about" },
+    { label: "Portfolio", href: "/portfolio" },
+    { label: "About Us", href: "/about-us" },
     { label: "Blog", href: "/blog" },
     { label: "Contact Us", href: "/#contact" },
   ];
