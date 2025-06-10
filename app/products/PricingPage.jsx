@@ -284,12 +284,12 @@ const PricingPage = () => {
 
         {/* Know More Button */}
         <div className="text-center mt-12 ">
-          <button className="inline-flex items-center pl-6 pr-2 py-3 bg-[#1423C9] text-white rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 group ">
+          {/* <button className="inline-flex items-center pl-6 pr-2 py-3 bg-[#1423C9] text-white rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 group ">
             Know More
             <div className='bg-white p-2 rounded-full ml-4'>
             <ArrowRight className="w-6 h-6 text-black group-hover:translate-x-1 transition-transform" />
             </div>
-          </button>
+          </button> */}
         </div>
       </div>
 

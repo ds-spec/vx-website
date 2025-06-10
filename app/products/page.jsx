@@ -11,15 +11,14 @@ import FAQComponent from "./FAQCoomponent";
 import PricingPage from "./PricingPage";
 import Gradsection from "./Gradsection";
 import VXSoftwareFooter from "./VXSoftwareFooter";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+
 
 export default function Products() {
   return (
     <div className="min-h-screen ">
       <Navbar/>
-      <SubNavbar/>
-      <Herosection/>
-      <VXSchoolBoard/>
-      <TrustedSchools/>
       <PlatformFeaturesPage/>
       <StarSection/>
       <EducationalPlatform/>
