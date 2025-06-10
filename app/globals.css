@@ -40,3 +40,8 @@ body {
   @apply text-transparent font-bold;
   -webkit-text-stroke: 1px white;
 }
+
+.footertext-outline {
+  @apply text-transparent font-extrabold;
+  -webkit-text-stroke: 4px #5029FF;
+}

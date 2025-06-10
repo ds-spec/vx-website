@@ -1,11 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { MdOutlineWork } from "react-icons/md";
 import RoundedTag from "./RoundedTag";
 
 export default function WorkflowSection() {
-  const [isActive, setIsActive] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
   const processSteps = [
     {
       step: "01",
@@ -57,7 +58,27 @@ export default function WorkflowSection() {
         />
         <div className="flex items-center w-full gap-5">
           {processSteps?.map((step, index) => (
-            <div key={index} className="relative flex">
+            <div
+              key={index}
+              className="relative flex transform transition-all duration-300"
+              onMouseEnter={() => setActiveIndex(index)}
+              // onMouseLeave={() => setActiveIndex(null)}
+            >
+              {activeIndex === index && (
+                <Image
+                  className="rounded-xl mb-4"
+                  width={270}
+                  height={180}
+                  src={`/images/${step.src}.jpg`}
+                  alt={step.title}
+                />
+              )}
+              {/* <Image
+                className="rounded-l-xl"
+                width={270}
+                height={100}
+                src={`/images/${step.src}.jpg`}
+              /> */}
               <div
                 style={{ backgroundColor: step.bgColor, color: step.textColor }}
                 key={index}
@@ -71,7 +92,7 @@ export default function WorkflowSection() {
                     {step.title}
                   </h2>
                 </div>
-                <p className="text-lg font-figtree font-semibold">
+                <p className="absolute bottom-4 text-lg font-figtree font-semibold">
                   {step.description}
                 </p>
               </div>

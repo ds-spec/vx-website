@@ -1,5 +1,6 @@
 import AnimatedText from "@/components/AnimatedText";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
 import WorkflowSection from "@/components/WorkflowSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <WorkflowSection />
       <Services />
       <Contact />
+      <Footer />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
 import { FiMessageCircle } from "react-icons/fi";
@@ -61,41 +62,51 @@ export default function Testimonials() {
         borderColor={"#C9BA14"}
         color={"white"}
       />
-      <div className="flex items-center gap-12 relative w-full bg-[#121015] rounded-xl px-3 py-4 overflow-hidden">
-        {testimonials?.map((testimonial, index) => (
-          <div
-            style={{ backgroundColor: testimonial.bgColor }}
-            className="flex flex-col flex-shrink-0 gap-7 w-4xl rounded-4xl px-5 py-4"
-          >
-            <div className="flex flex-col gap-2">
-              <FaQuoteLeft size={"1.8em"} />
-              <p className="font-figtree text-2xl font-semibold">
-                {testimonial.quote}
-              </p>
-              <FaQuoteRight size={"1.8em"} className="self-end" />
-            </div>
-            <hr />
-            <div className="flex items-start gap-4">
-              <div className="relative w-20 h-20 bg-amber-200">
-                <Image
-                  src="/images/users/user1.jpg"
-                  alt="User"
-                  objectFit="cover"
-                  objectPosition="0% 20%"
-                  fill
-                />
-              </div>
+      <div className="flex flex-col items-center gap-12 relative w-full bg-[#121015] rounded-xl px-3 py-4 overflow-hidden">
+        <div className="flex items-center gap-12">
+          {testimonials?.map((testimonial, index) => (
+            <div
+              style={{ backgroundColor: testimonial.bgColor }}
+              className="flex flex-col flex-shrink-0 gap-7 w-4xl rounded-4xl px-5 py-4"
+            >
               <div className="flex flex-col gap-2">
-                <h4 className="font-figtree font-semibold text-3xl">
-                  {testimonial.name}
-                </h4>
-                <h5 className="font-figtree font-medium text-xl">
-                  {testimonial.designation}
-                </h5>
+                <FaQuoteLeft size={"1.8em"} />
+                <p className="font-figtree text-2xl font-semibold">
+                  {testimonial.quote}
+                </p>
+                <FaQuoteRight size={"1.8em"} className="self-end" />
+              </div>
+              <hr />
+              <div className="flex items-start gap-4">
+                <div className="relative w-20 h-20">
+                  <Image
+                    src="/images/users/user1.jpg"
+                    alt="User"
+                    objectFit="cover"
+                    objectPosition="0% 20%"
+                    fill
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h4 className="font-figtree font-semibold text-3xl">
+                    {testimonial.name}
+                  </h4>
+                  <h5 className="font-figtree font-medium text-xl">
+                    {testimonial.designation}
+                  </h5>
+                </div>
               </div>
             </div>
+          ))}
+        </div>
+        <div className="flex items-center gap-5 self-end">
+          <div className="bg-white cursor-pointer rounded-full p-2 transform transition-all">
+            <ArrowLeft color="black" size={"1.9em"} />
           </div>
-        ))}
+          <div className="bg-white cursor-pointer rounded-full p-2 transform transition-all">
+            <ArrowRight color="black" size={"1.9em"} />
+          </div>
+        </div>
       </div>
     </>
   );
