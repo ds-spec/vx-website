@@ -10,7 +10,7 @@ export default function Navbar() {
     { label: "Portfolio", href: "/portfolio" },
     { label: "About Us", href: "/about-us" },
     { label: "Blog", href: "/blog" },
-    { label: "Contact Us", href: "/#contact" },
+    { label: "Contact Us", href: "/contactus" },
   ];
 
   return (
