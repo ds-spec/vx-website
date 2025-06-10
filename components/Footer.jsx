@@ -9,7 +9,7 @@ import { RiTwitterXFill } from "react-icons/ri";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0C0C0C] text-white">
+    <footer className="bg-[#121015] text-white">
       <div className="max-w-screen-xl w-full mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="space-y-2">
           <h4 className="font-figtree font-semibold text-lg">Company</h4>
