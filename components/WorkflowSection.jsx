@@ -82,7 +82,7 @@ export default function WorkflowSection() {
               <div
                 style={{ backgroundColor: step.bgColor, color: step.textColor }}
                 key={index}
-                className="flex flex-col gap-6 p-4 bg-[#5029FF] w-64 h-[480px] rounded-xl"
+                className="flex flex-col gap-6 p-4 bg-[#5029FF] w-md h-[480px] rounded-xl"
               >
                 <div className="flex flex-col gap-7">
                   <h1 className="text-6xl font-figtree font-bold">
