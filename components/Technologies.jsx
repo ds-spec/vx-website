@@ -3,13 +3,14 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { TbCpu } from "react-icons/tb";
 import RoundedTag from "./RoundedTag";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Technologies = () => {
+  const circleRef = useRef();
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".expanding-circle",
