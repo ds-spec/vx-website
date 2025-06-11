@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MdOutlineWork } from "react-icons/md";
 import RoundedTag from "./RoundedTag";
+import gsap from "gsap";
 
 export default function WorkflowSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const cardRef = useRef(null);
   const processSteps = [
     {
       step: "01",
@@ -46,9 +46,16 @@ export default function WorkflowSection() {
     },
   ];
 
+  const handleCardHover = () => {
+    gsap.to(cardRef.current, {
+      y: 20,
+      duration: 0.5,
+    });
+  };
+
   return (
     <div className="pt-4">
-      <div className="flex flex-col gap-5 w-full min-h-96 bg-[#F3F3F3] px-8 py-12">
+      <div className="flex flex-col gap-5 w-full min-h-96 bg-[#F3F3F3] px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12">
         <RoundedTag
           title={"Why VX Software Solutions"}
           icon={<MdOutlineWork color="#5029FF" />}
@@ -56,43 +63,27 @@ export default function WorkflowSection() {
           bgColor={"#5029FF33"}
           color={"black"}
         />
-        <div className="flex items-center w-full gap-5">
+        <div className="flex flex-col md:flex-row items-center w-full md:flex-wrap lg:w-full gap-3 sm:gap-4 md:gap-5">
           {processSteps?.map((step, index) => (
             <div
+              ref={cardRef}
               key={index}
-              className="relative flex transform transition-all duration-300"
-              onMouseEnter={() => setActiveIndex(index)}
-              // onMouseLeave={() => setActiveIndex(null)}
+              className="flex items-center relative w-full md:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.833rem)] xl:w-[calc(25%-0.9375rem)] transform transition-all duration-300"
             >
-              {activeIndex === index && (
-                <Image
-                  className="rounded-xl mb-4"
-                  width={270}
-                  height={180}
-                  src={`/images/${step.src}.jpg`}
-                  alt={step.title}
-                />
-              )}
-              {/* <Image
-                className="rounded-l-xl"
-                width={270}
-                height={100}
-                src={`/images/${step.src}.jpg`}
-              /> */}
               <div
                 style={{ backgroundColor: step.bgColor, color: step.textColor }}
                 key={index}
-                className="flex flex-col gap-6 p-4 bg-[#5029FF] w-md h-[480px] rounded-xl"
+                className="flex flex-col gap-4 sm:gap-5 md:gap-6 p-3 sm:p-4 bg-[#5029FF] w-full h-[320px] sm:h-[380px] md:h-[420px] lg:h-[480px] rounded-xl"
               >
-                <div className="flex flex-col gap-7">
-                  <h1 className="text-6xl font-figtree font-bold">
+                <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-7">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-figtree font-bold">
                     {step.step}
                   </h1>
-                  <h2 className="text-3xl font-figtree font-semibold tracking-wide">
+                  <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-figtree font-semibold tracking-wide">
                     {step.title}
                   </h2>
                 </div>
-                <p className="absolute bottom-4 text-lg font-figtree font-semibold">
+                <p className="absolute bottom-3 sm:bottom-4 text-sm sm:text-base md:text-lg font-figtree font-semibold pr-3 sm:pr-4">
                   {step.description}
                 </p>
               </div>
