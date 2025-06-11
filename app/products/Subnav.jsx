@@ -47,7 +47,7 @@ const SubNavbar = () => {
                 FAQs
               </Link>
               <Link
-                href="/contact"
+                href="/contactus"
                 className="text-gray-700 hover:text-gray-900 px-3 py-2 text-sm font-medium transition-colors"
               >
                 CONTACT US
