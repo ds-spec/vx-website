@@ -10,7 +10,6 @@ import RoundedTag from "./RoundedTag";
 gsap.registerPlugin(ScrollTrigger);
 
 const Technologies = () => {
-  const circleRef = useRef();
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: ".expanding-circle",
