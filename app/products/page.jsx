@@ -20,13 +20,9 @@ export default function Products() {
     <div className="min-h-screen ">
       <Navbar/>
       <PlatformFeaturesPage/>
-      <StarSection/>
-      <EducationalPlatform/>
-      <TestimonialsSection/>
-      <FAQComponent/>
-      <PricingPage/>
-      <Gradsection/>
+
       <VXSoftwareFooter/>
     </div>
   );
 }
+ 
